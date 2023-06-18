@@ -37,7 +37,6 @@ const Editor = ({socketRef,roomId, onCodeChange}) => {
         }); 
 
    
-   
 
        }
    init();

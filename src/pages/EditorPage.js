@@ -40,9 +40,6 @@ const EditorPage = () => {
       });
 
 
-
-
-
  // Listening for joined event 
       socketRef.current.on(
         ACTIONS.JOINED,
