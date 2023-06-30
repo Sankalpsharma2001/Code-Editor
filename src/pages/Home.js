@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { v4 as uuidV4 } from 'uuid';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import Card from "./Card";
+import Tw from "./typewr";
 
 const Home = () => {
     const navigate = useNavigate();
@@ -35,53 +37,74 @@ const Home = () => {
         }
     };
     return (
-        <div className="homePageWrapper">
-            <div className="formWrapper">
-                <img
-                    className="homePageLogo"
-                    src="/code-sync.png"
-                    alt="code-sync-logo"
-                />
-                <h4 className="mainLabel">Paste invitation ROOM ID</h4>
-                <div className="inputGroup">
-                    <input
-                        type="text"
-                        className="inputBox"
-                        placeholder="ROOM ID"
-                        onChange={(e) => setRoomId(e.target.value)}
-                        value={roomId}
-                        onKeyUp={handleInputEnter}
-                    />
-                    <input
-                        type="text"
-                        className="inputBox"
-                        placeholder="USERNAME"
-                        onChange={(e) => setUsername(e.target.value)}
-                        value={username}
-                        onKeyUp={handleInputEnter}
-                    />
-                    <button className="btn joinBtn" onClick={joinRoom}>
-                        Join
-                    </button>
-                    <span className="createInfo">
-                        If you don't have an invite then create &nbsp;
-                        <a
+        <>
+            <div className="divide">
+          
+                <div className="content contentWrapper">
+                
+                <Card >
+                <Tw/>
+           <h1>
+           A real-time CodeXpert platform that enables developers to collaborate on a piece of code simultaneously, with changes being reflected in real-time on all connected devices.This platform often come with a range  of tools and features to make coding easier such as syntax highlighting, saving changes.
+           
+           </h1>
+           </Card>
+                    {/* <h1>CodeXpert</h1>
+                    <div className="leftPanel">
+                        <h4>A real-time CodeXpert platform that enables developers to collaborate on a piece of code simultaneously,
+                            with changes being reflected in real-time on all connected devices.This platform often come with a range
+                            of tools and features to make coding easier,
+                            such as syntax highlighting, dynamic fontSize , saving changes,change theme .</h4>
+                    </div> */}
+                </div>
+                
+                <div className="homePageWrapper">
+                    <div className="formWrapper">
+                        <img
+                            className="homePageLogo"
+                            src="/cx.png"
+                            alt="code-expert-logo"
+                        />
+                        <h4 className="mainLabel">Paste Invitation ROOM ID</h4>
+                        <div className="inputGroup">
+                            <input
+                                type="text"
+                                className="inputBox"
+                                placeholder="ROOM ID"
+                                onChange={(e) => setRoomId(e.target.value)}
+                                value={roomId}
+                                onKeyUp={handleInputEnter}
+                            />
+                            <input
+                                type="text"
+                                className="inputBox"
+                                placeholder="USERNAME"
+                                onChange={(e) => setUsername(e.target.value)}
+                                value={username}
+                                onKeyUp={handleInputEnter}
+                            />
+                            <button className="btn joinBtn" onClick={joinRoom}>
+                                Enter the Room
+                            </button>
+                            <span className="createInfo">
+                                <button className="btn joinBtn" onClick={createNewRoom}>
+                                    Create New Room
+                                </button>
+                                { /*    Create Room Id &nbsp;
+                      <a
                             onClick={createNewRoom}
                             href=""
                             className="createNewBtn"
                         >
-                            new room
-                        </a>
-                    </span>
+                           
+                        </a>*/}
+
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <footer>
-                <h4>
-                    {/* Built  💛 &nbsp; by &nbsp;
-                    <a href="">Sankalp Sharma</a> */}
-                </h4>
-            </footer>
-        </div>
+        </>
     );
 };
 

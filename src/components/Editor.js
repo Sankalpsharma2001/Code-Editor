@@ -2,21 +2,27 @@ import React, { useEffect, useRef } from 'react';
 import Codemirror from 'codemirror';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/dracula.css';
+import 'codemirror/theme/material-ocean.css';
+import 'codemirror/theme/monokai.css'
+import 'codemirror/theme/twilight.css'
 import 'codemirror/mode/javascript/javascript';
+import 'codemirror/mode/css/css';
+import 'codemirror/mode/python/python';
 import 'codemirror/addon/edit/closetag';
 import 'codemirror/addon/edit/closebrackets';
 import ACTIONS from '../Actions';  
-
+ 
 const Editor = ({socketRef,roomId, onCodeChange}) => {
     const editorRef = useRef(null);
     useEffect(()=>{
-       async function init()
-       {
+       // we are connecting codemirror to text editor 
+        async function init()
+       { 
         editorRef.current =Codemirror.fromTextArea(
             document.getElementById('realtimeEditor'),
             {
                 mode: { name: 'javascript', json: true },
-                theme: 'dracula',
+                theme: 'material-ocean',
                 autoCloseTags: true,
                 autoCloseBrackets: true,
                 lineNumbers: true,

@@ -102,13 +102,26 @@ const EditorPage = () => {
   }
 
   return (
+    <>
+   
     <div className="mainWrap">
+   
+      <div className="editorWrap">
+        <Editor
+        socketRef={socketRef}
+        roomId={roomId}
+        onCodeChange={(code) => {
+            codeRef.current = code;
+        }}
+        />
+      </div>
+
       <div className="aside">
         <div className="asideInner">
           <div className="logo">
-            <img className="logoImage" src="/code-sync.png" alt="logo" />
+            <img className="logoImage" src="/cx.png" alt="logo" />
           </div>
-          <h3>Connected</h3>
+          <h3>People Joined</h3>
           <div className="clientsList">
             {clients.map((client) => (
               <Client key={client.socketId} username={client.username} />
@@ -122,16 +135,9 @@ const EditorPage = () => {
           Leave
         </button>
       </div>
-      <div className="editorWrap">
-        <Editor
-        socketRef={socketRef}
-        roomId={roomId}
-        onCodeChange={(code) => {
-            codeRef.current = code;
-        }}
-        />
-      </div>
+
     </div>
+    </>
   );
 };
 
